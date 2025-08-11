@@ -22,7 +22,7 @@ MacMenu-qBittorrent is a lightweight macOS menu bar app that connects to qBittor
 2. **Install the package from PyPI**
 
     ```bash
-    pip install menubarqbt
+    pip install macmenuqbt
     ```
 
 ---
