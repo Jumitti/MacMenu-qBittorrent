@@ -1,10 +1,28 @@
 import argparse
-import sys
-import time
 import rumps
 from qbittorrentapi import Client
-import argparse
 import importlib.metadata
+import importlib.metadata
+import json
+import urllib.request
+
+import rumps
+from qbittorrentapi import Client
+
+
+def check_for_update(package_name="macmenuqbt"):
+    try:
+        current_version = importlib.metadata.version(package_name)
+
+        with urllib.request.urlopen(f"https://pypi.org/pypi/{package_name}/json") as response:
+            data = json.load(response)
+            latest_version = data["info"]["version"]
+
+        if current_version != latest_version:
+            print(f"[yellow]A new version of {package_name} is available: {latest_version} (you have {current_version})[/yellow]")
+            print(f"[yellow]Run 'pip install --upgrade {package_name}' to update.[/yellow]")
+    except Exception:
+        pass
 
 
 class QBitTorrentMenuApp(rumps.App):
@@ -83,6 +101,7 @@ def parse_args(argv=None):
 
 
 def main(host=None, port=None, username=None, password=None, interval=None):
+    check_for_update()
     if all(arg is None for arg in [host, port, username, password, interval]):
         # Mode CLI
         args = parse_args()
