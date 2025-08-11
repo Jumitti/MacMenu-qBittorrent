@@ -1,0 +1,28 @@
+[project]
+name = "macmenuqbt"
+version = "0.1.0"
+description = "macOS menu bar app to show qBittorrent torrents status."
+readme = "README.md"
+authors = [
+  { name="Julien Minniti", email="minnitijulien06@gmail.com" }
+]
+license = "MIT"
+requires-python = ">=3.8"
+dependencies = [
+  "qbittorrent-api",
+  "rumps"
+]
+
+[project.urls]
+Homepage = "https://github.com/Jumitti/MacMenu-qBittorrent"
+
+[project.scripts]
+macmenuqbt = "macmenuqbt.core:main"
+mmqbt = "macmenuqbt.core:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+exclude = ["img"]
