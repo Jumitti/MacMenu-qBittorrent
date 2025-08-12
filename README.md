@@ -1,4 +1,7 @@
-# MacMenu-qBittorrent
+# MacMenu-qBittorrent 🍏
+
+![PyPI version](https://img.shields.io/pypi/v/macmenuqbt?label=PyPI%20Version)
+
 
 MacMenu-qBittorrent is a lightweight macOS menu bar app that connects to qBittorrent's Web UI and displays active torrents with their progress directly in your Mac menu bar.
 
