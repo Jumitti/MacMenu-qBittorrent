@@ -1,6 +1,6 @@
 [project]
 name = "macmenuqbt"
-version = "0.1.1"
+version = "0.1.2"
 description = "macOS menu bar app to show qBittorrent torrents status."
 readme = "README.md"
 authors = [

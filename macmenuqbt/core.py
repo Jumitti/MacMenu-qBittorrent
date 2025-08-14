@@ -25,9 +25,47 @@ def check_for_update(package_name="macmenuqbt"):
         pass
 
 
+def format_speed(speed_bytes_per_s):
+    kb_s = speed_bytes_per_s / 1024
+    if kb_s >= 500:
+        mb_s = kb_s / 1024
+        return f"{mb_s:.2f} Mo/s"
+    else:
+        return f"{kb_s:.1f} Ko/s"
+
+
+def format_eta(seconds):
+    if seconds < 0:
+        return "∞"
+    else:
+        import datetime
+        return str(datetime.timedelta(seconds=seconds))
+
+
+STATUS_ICONS = {
+    "downloading": "⬇️",
+    "resumed": "⬇️",
+    "running": "⬇️",
+    "forcedDL": "⬇️",
+    "seeding": "🌱",
+    "completed": "✅",
+    "paused": "⏸️",
+    "stopped": "⏸️",
+    "inactive": "⏸️",
+    "active": "🔄",
+    "stalled": "⚠️",
+    "stalled_uploading": "⚠️",
+    "stalled_downloading": "⚠️",
+    "checking": "🔍",
+    "moving": "📦",
+    "errored": "❌",
+    "all": "📋"
+}
+
+
 class QBitTorrentMenuApp(rumps.App):
     def __init__(self, host, port, username, password, interval=5):
-        super().__init__("qBittorrent")
+        super().__init__("🌀 qBittorrent")
         self.host = host
         self.port = port
         self.username = username
@@ -54,22 +92,33 @@ class QBitTorrentMenuApp(rumps.App):
         except Exception as e:
             print(f"Failed to connect: {e}")
 
-    @rumps.timer(5)
+    @rumps.timer(1)
     def update_menu(self, _=None):
         try:
             torrents = self.client.torrents_info()
             self.menu.clear()
+
             if not torrents:
-                self.menu.add("No torrents found")
+                self.menu.add("⚪ No torrent found")
                 return
 
             for t in torrents:
                 progress = f"{t.progress * 100:.1f}%"
-                title = f"{t.name} — {progress}"
+                status_icon = STATUS_ICONS.get(t.state, "❓")
+
+                dlspeed = format_speed(t.dlspeed)
+                upspeed = format_speed(t.upspeed)
+                eta_str = format_eta(t.eta)
+
+                title = (
+                    f"{t.name} | "
+                    f"{status_icon} {progress} | ⬇️ {dlspeed} ⬆️ {upspeed} | ⏳ {eta_str}"
+                )
                 self.menu.add(title)
+
         except Exception as e:
             self.menu.clear()
-            self.menu.add(f"Error: {str(e)}")
+            self.menu.add(f"⚠️ Error: {str(e)}")
             try:
                 self.client.auth_log_in()
             except:

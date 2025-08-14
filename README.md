@@ -73,8 +73,33 @@ mmqbt(
 )
 ```
 
-## Screenshots
+## What did you see
+
 ![alt text](img/screenshot.png)
+
+**Name of torrent | Status Progression | ⬇️ DL speed ⬆️ UP speed | ⏳ ETA**
+
+| Status               | Emoji | Description                  |
+|----------------------|-------|------------------------------|
+| downloading          | ⬇️    | Downloading                  |
+| resumed              | ⬇️    | Download resumed              |
+| running              | ⬇️    | Running / in progress         |
+| forcedDL             | ⬇️    | Forced download               |
+| seeding              | 🌱    | Seeding (uploading)           |
+| completed            | ✅    | Download completed            |
+| paused               | ⏸️    | Paused                        |
+| stopped              | ⏸️    | Stopped                       |
+| inactive             | ⏸️    | Inactive                      |
+| active               | 🔄    | Active / operation in progress|
+| stalled              | ⚠️    | Stalled / waiting              |
+| stalled_uploading    | ⚠️    | Upload stalled                |
+| stalled_downloading  | ⚠️    | Download stalled              |
+| checking             | 🔍    | Checking files                |
+| moving               | 📦    | Moving files                  |
+| errored              | ❌    | Error encountered             |
+| all                  | 📋    | All torrents                  |
+| unknown              | ❓    | Unknown status                 |
+
 
 ## Notes
 Only compatible with macOS due to use of rumps for menu bar integration.
