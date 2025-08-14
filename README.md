@@ -3,7 +3,7 @@
 ![PyPI version](https://img.shields.io/pypi/v/macmenuqbt?label=PyPI%20Version)
 
 
-MacMenu-qBittorrent is a lightweight macOS menu bar app that connects to qBittorrent's Web UI and displays active torrents with their progress directly in your Mac menu bar.
+MacMenu-qBittorrent is a lightweight macOS menu bar app that connects to qBittorrent's Web UI and displays active torrents with their progress and other stuff directly in your Mac menu bar.
 
 ---
 
@@ -11,7 +11,8 @@ MacMenu-qBittorrent is a lightweight macOS menu bar app that connects to qBittor
 
 - Runs natively on macOS as a menu bar application.
 - Connects to qBittorrent Web UI via `qbittorrent-api`.
-- Displays all active torrents with progress percentages in the menu bar.
+- Displays all active torrents with progress percentages **and many other stuff** in the menu bar.
+- Configuration displaying
 - Auto-refreshes torrent status at configurable intervals.
 - Configurable connection parameters (host, port, username, password).
 - Simple and clean UI using `rumps`.
@@ -76,32 +77,45 @@ mmqbt(
 )
 ```
 
-## What did you see
+## Screenshot and hints
 
-![alt text](img/screenshot.png)
+- This is the default view:
+   ![alt text](img/set_options.png)
 
-**Name of torrent | Status Progression | ⬇️ DL speed ⬆️ UP speed | ⏳ ETA**
+- Status table (see also screenshot):
 
-| Status               | Emoji | Description                  |
-|----------------------|-------|------------------------------|
-| downloading          | ⬇️    | Downloading                  |
-| resumed              | ⬇️    | Download resumed              |
-| running              | ⬇️    | Running / in progress         |
-| forcedDL             | ⬇️    | Forced download               |
-| seeding              | 🌱    | Seeding (uploading)           |
-| completed            | ✅    | Download completed            |
-| paused               | ⏸️    | Paused                        |
-| stopped              | ⏸️    | Stopped                       |
-| inactive             | ⏸️    | Inactive                      |
-| active               | 🔄    | Active / operation in progress|
-| stalled              | ⚠️    | Stalled / waiting              |
-| stalled_uploading    | ⚠️    | Upload stalled                |
-| stalled_downloading  | ⚠️    | Download stalled              |
-| checking             | 🔍    | Checking files                |
-| moving               | 📦    | Moving files                  |
-| errored              | ❌    | Error encountered             |
-| all                  | 📋    | All torrents                  |
-| unknown              | ❓    | Unknown status                 |
+   | Status              | Emoji | Description                    |
+   |---------------------|-------|--------------------------------|
+   | downloading         | ⬇️    | Downloading                    |
+   | resumed             | ⬇️    | Download resumed               |
+   | running             | ⬇️    | Running / in progress          |
+   | forcedDL            | ⬇️    | Forced download                |
+   | seeding             | 🌱    | Seeding (uploading)            |
+   | completed           | ✅     | Download completed             |
+   | paused              | ⏸️    | Paused                         |
+   | stopped             | ⏸️    | Stopped                        |
+   | inactive            | ⏸️    | Inactive                       |
+   | active              | 🔄    | Active / operation in progress |
+   | stalled             | ⚠️    | Stalled / waiting              |
+   | stalled_uploading   | ⚠️    | Upload stalled                 |
+   | stalled_downloading | ⚠️    | Download stalled               |
+   | checking            | 🔍    | Checking files                 |
+   | moving              | 📦    | Moving files                   |
+   | errored             | ❌     | Error encountered              |
+   | all                 | 📋    | All torrents                   |
+   | unknown             | ❓     | Unknown status                 |
+
+   ![alt text](img/status.png)
+
+- All options enabled:
+
+  Simply click on them to activate them.
+  ![alt text](img/full_options.png)
+
+- Change the order as you wish:
+
+   ![alt text](img/manage_down.png)
+   ![alt text](img/manage_down_2.png)
 
 
 ## Notes
