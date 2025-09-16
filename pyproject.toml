@@ -1,6 +1,6 @@
 [project]
 name = "macmenuqbt"
-version = "0.1.5"
+version = "0.2.0"
 description = "macOS menu bar app to show qBittorrent torrents status."
 readme = "README.md"
 authors = [
@@ -9,8 +9,9 @@ authors = [
 license = "MIT"
 requires-python = ">=3.8"
 dependencies = [
-  "qbittorrent-api",
-  "rumps"
+    "qbittorrent-api",
+    "rumps",
+    "PyQt5"
 ]
 
 [project.urls]
@@ -26,3 +27,6 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 exclude = ["img"]
+
+[tool.setuptools.package-data]
+macmenuqbt = ["icon/*"]

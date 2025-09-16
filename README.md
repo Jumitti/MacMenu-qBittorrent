@@ -13,10 +13,13 @@ MacMenu-qBittorrent is a lightweight macOS menu bar app that connects to qBittor
 - Connects to qBittorrent Web UI via `qbittorrent-api`.
 - Launch qBittorent automatically
 - Displays all active torrents with progress percentages **and many other stuff** in the menu bar.
+- Can Pause/Resume all torrents with one click or one by one (click on it)
+- Notifications (with sounds ! 🎵)
 - Configuration displaying
 - Auto-refreshes torrent status at configurable intervals.
 - Configurable connection parameters (host, port, username, password).
 - Simple and clean UI using `rumps`.
+- Plugin support (beta, no need to hurry...)
 
 ---
 
@@ -26,39 +29,40 @@ MacMenu-qBittorrent is a lightweight macOS menu bar app that connects to qBittor
    ![alt text](img/set_options.png)
 
 - Status table (see also screenshot):
-
-   | Status              | Emoji | Description                    |
-   |---------------------|-------|--------------------------------|
-   | downloading         | ⬇️    | Downloading                    |
-   | resumed             | ⬇️    | Download resumed               |
-   | running             | ⬇️    | Running / in progress          |
-   | forcedDL            | ⬇️    | Forced download                |
-   | seeding             | 🌱    | Seeding (uploading)            |
-   | completed           | ✅     | Download completed             |
-   | paused              | ⏸️    | Paused                         |
-   | stopped             | ⏸️    | Stopped                        |
-   | inactive            | ⏸️    | Inactive                       |
-   | active              | 🔄    | Active / operation in progress |
-   | stalled             | ⚠️    | Stalled / waiting              |
-   | stalled_uploading   | ⚠️    | Upload stalled                 |
-   | stalled_downloading | ⚠️    | Download stalled               |
-   | checking            | 🔍    | Checking files                 |
-   | moving              | 📦    | Moving files                   |
-   | errored             | ❌     | Error encountered              |
-   | all                 | 📋    | All torrents                   |
-   | unknown             | ❓     | Unknown status                 |
-
-   ![alt text](img/status.png)
-
-- All options enabled:
-
-  Simply click on them to activate them.
-  ![alt text](img/full_options.png)
+    
+    | Status             | Emoji | Description               |
+    |--------------------|-------|---------------------------|
+    | allocating         | 📦    | Allocating resources      |
+    | checkingDL         | 🔍    | Checking download         |
+    | checkingResumeData | 🔍    | Checking resume data      |
+    | checkingUP         | 🔍    | Checking upload           |
+    | downloading        | ⬇️    | Downloading               |
+    | error              | ❌     | Error encountered         |
+    | forcedDL           | ⬇️    | Forced download           |
+    | forcedUP           | ⬆️    | Forced upload             |
+    | metaDL             | 📥    | Metadata download         |
+    | missingFiles       | ⚠️    | Missing files             |
+    | moving             | 📦    | Moving files              |
+    | stoppedDL          | ⏸️    | Download stopped / paused |
+    | stoppedUP          | ⏸️    | Upload stopped / paused   |
+    | queuedDL           | ⏳     | Queued for download       |
+    | queuedUP           | ⏳     | Queued for upload         |
+    | stalledDL          | ⚠️    | Download stalled          |
+    | stalledUP          | ⚠️    | Upload stalled            |
+    | unknown            | ❓     | Unknown status            |
+    | uploading          | ⬆️    | Uploading                 |
 
 - Change the order as you wish:
 
-   ![alt text](img/manage_down.png)
-   ![alt text](img/manage_down_2.png)
+   ![alt text](img/manage_options.png)
+   ![alt text](img/window_options.png)
+
+- Change menu bar display
+
+Monochrome adapts to the Mac's Night/Day lighting. And you can hide "qBittorrent" and the total download percentage.
+
+  ![alt text](img/menu_bar.png)
+
 
 ## Install standalone MacMenuqBt (MMqBt)
 
@@ -111,7 +115,7 @@ Tip:
 
 Once set up, MMqBt will remember your credentials locally (they are not sent anywhere else) and will automatically reconnect each time you start the app.
 
-![alt text](img/cred_1.png)
+![alt text](img/set_options.png)
 ![alt text](img/cred_2.png)
 
 ## Installation via PyPI
