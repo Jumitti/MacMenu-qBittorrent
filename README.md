@@ -63,6 +63,9 @@ Monochrome adapts to the Mac's Night/Day lighting. And you can hide "qBittorrent
 
   ![alt text](img/menu_bar.png)
 
+- Notification
+
+![alt text](img/notify.png)
 
 ## Install standalone MacMenuqBt (MMqBt)
 
@@ -181,6 +184,15 @@ For **qbt=True/False** and **credentials=True/False**:
 
 Perhaps if you are using MMqBt in another script, you do not want MMqBt to display the option to start 
 qBittorrent (qbt) or the login credentials (credentials).
+
+## Plugins
+
+MMqBt supports plugins to extend its functionality.  
+
+To learn how to create your own plugins, see the dedicated guide: [plugins_readme.md](plugins/plugins_readme.md)
+
+To see [plugins](plugins)
+
 
 
 ## Notes
