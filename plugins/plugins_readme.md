@@ -14,6 +14,8 @@ At minimum, a plugin should define:
 2. **Settings menu items**
 3. **Run logic**
 
+You also have a template here: [template.py](template.py)
+
 ### Example skeleton
 
 ```python
@@ -119,12 +121,11 @@ def run(app):
     app.menu.add(plugin_menu)
 ```
 
-> ⚠️ Be careful: adding menu items in `run()` multiple times will create duplicates. Check if the item already exists before adding.
-
 ---
 
 ## 4. Best Practices
 
+* All ``self`` references in ``core.py`` can be used. For example, ``self.host`` would become ``app.host`` in the plugin.
 * Always use `load_settings()` and `save_settings()` to read/write plugin configuration.
 * Use descriptive names for your menu items.
 * Keep your plugin self-contained; do not modify MMqBt internal state directly unless necessary.

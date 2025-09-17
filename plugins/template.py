@@ -93,6 +93,9 @@ def run(app):
             settings_text
         )
 
-    plugin_menu = rumps.MenuItem("Show Settings", callback=show_settings)
-    app.menu.add(plugin_menu)  # For now, it's not working, adding a function in the main panel of MMqBt is not activated.
+    def show_credentials(_):
+        # Alert popup
+        rumps.alert(f"Current credentials:\nHost {app.host}:{app.port}\nUsername: {app.username}\nPassword: {app.password}")
 
+    app.menu.add(rumps.MenuItem("DEMO TEMPLATE PLUGIN", callback=show_settings))
+    app.menu.add(rumps.MenuItem("DEMO TEMPLATE CREDENTIALS", callback=show_credentials))

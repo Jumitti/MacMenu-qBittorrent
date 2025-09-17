@@ -1,6 +1,8 @@
 # MacMenu-qBittorrent 🍏
 
-![PyPI version](https://img.shields.io/pypi/v/macmenuqbt?label=PyPI%20Version)
+![PyPI version](https://img.shields.io/pypi/v/macmenuqbt?label=PyPI%20Version) [![Buy me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20Coffee-☕-FFDD00?style=flat-square)](https://www.buymeacoffee.com/Jumitti)
+
+
 
 
 MacMenu-qBittorrent is a lightweight macOS menu bar app that connects to qBittorrent's Web UI and displays active torrents with their progress and other stuff directly in your Mac menu bar.
@@ -193,7 +195,9 @@ To learn how to create your own plugins, see the dedicated guide: [plugins_readm
 
 To see [plugins](plugins)
 
-
+- [template.py](plugins/template.py): a guide to making your own plugins
+- [telegram_notify.py](plugins/telegram_notify.py): Telegram bot to report completed torrents
+- [trqbt.py](plugins/trqbt.py): automatic tracker removal ([TrackersRemover-qBittorrent](https://github.com/Jumitti/TrackersRemover-qBittorrent) project porting)
 
 ## Notes
 Only compatible with macOS due to use of rumps for menu bar integration.
@@ -210,4 +214,4 @@ Feel free to open issues or submit pull requests!
 
 ## Another qBittorrent plugin
 
-- [TrackersRemover-qBittorent](https://github.com/Jumitti/TrackersRemover-qBittorrent): as expected
+- [TrackersRemover-qBittorent](https://github.com/Jumitti/TrackersRemover-qBittorrent): as expected. A plugin port for MMqBt is available ([trqbt.py](plugins/trqbt.py)).

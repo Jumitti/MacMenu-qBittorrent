@@ -7,6 +7,8 @@ I have never experienced lag caused by this plugin, but when in doubt, I prefer 
 
 This plugin allows you to receive Telegram notifications about your qBittorrent torrents directly from the **MMqBt** macOS menu bar app.
 
+Author: [@Jumitti](https://github.com/Jumitti)
+
 ---
 
 ## Features

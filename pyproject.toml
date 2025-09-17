@@ -1,6 +1,6 @@
 [project]
 name = "macmenuqbt"
-version = "0.2.0"
+version = "0.3.0"
 description = "macOS menu bar app to show qBittorrent torrents status."
 readme = "README.md"
 authors = [
@@ -11,7 +11,9 @@ requires-python = ">=3.8"
 dependencies = [
     "qbittorrent-api",
     "rumps",
-    "PyQt5"
+    "PyQt5",
+    "pyobjc",
+    "pyobjc-framework-quartz"
 ]
 
 [project.urls]

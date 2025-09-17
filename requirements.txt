@@ -9,3 +9,8 @@ rumps
 python-telegram-bot
 
 PyQt5
+
+pyobjc-framework-Quartz
+pyobjc
+PyOpenGL
+PyOpenGL_accelerate
