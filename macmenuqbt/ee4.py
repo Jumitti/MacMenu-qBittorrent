@@ -47,6 +47,9 @@ class SolarWidget(QWidget):
         self.center = (self.width() // 2, self.height() // 2)
         self.show_orbits = True
 
+        self.setFocusPolicy(Qt.StrongFocus)  # IMPORTANT
+        self.setFocus()
+
     def set_year_offset(self, years: int):
         self.year_offset = years
         self._recompute_sim_time_from_now()
@@ -187,6 +190,8 @@ class SolarWidget(QWidget):
         if ev.key() == Qt.Key_O:
             self.show_orbits = not self.show_orbits
             self.update()
+        else:
+            super().keyPressEvent(ev)
 
 
 class SolarWindow(QMainWindow):

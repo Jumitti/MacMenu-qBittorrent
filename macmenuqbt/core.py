@@ -11,6 +11,7 @@ import time
 import urllib.request
 import webbrowser
 import random
+from multiprocessing import Process
 
 import rumps
 from qbittorrentapi import Client
@@ -151,7 +152,7 @@ def is_dark_mode():
 
 
 class QBitTorrentMenuApp(rumps.App):
-    def __init__(self, host, port, username, password, interval=5, qbt=True, credentials=True):
+    def __init__(self, host, port, username, password, interval=1, qbt=True, credentials=True):
         self.color_icon = get_icon("color.png")
         self.light_icon = get_icon("light.png")
         self.dark_icon = get_icon("dark.png")
@@ -521,17 +522,17 @@ class QBitTorrentMenuApp(rumps.App):
 
         if self.ee_data[key] == 0:
             self.ee_data[key] = 1
-
             with open(EE_FILE, "w") as f:
                 json.dump(self.ee_data, f, indent=2)
-
             self.ee_data = {k: self.ee_data[k] for k in EE_FILE_CONTENT.keys()}
 
-        ee_functions[idx]()
+        p = Process(target=globals()[key])
+        p.start()
 
     @staticmethod
     def ee_run(ee_key):
-        globals()[ee_key]()
+        p2 = Process(target=globals()[ee_key])
+        p2.start()
 
     @staticmethod
     def change_state_torrent(torrent):
@@ -549,7 +550,7 @@ class QBitTorrentMenuApp(rumps.App):
             else:
                 self.client.torrents_resume(hashes=hashes)
 
-    @rumps.timer(1)
+    # @rumps.timer(1)
     def update_menu(self, _=None):
         if self.settings_data["monochrome"]:
             if is_dark_mode():
@@ -692,7 +693,7 @@ def parse_args(argv=None):
     parser.add_argument("-P", "--port", type=int, default=8080)
     parser.add_argument("-U", "--username", default="admin")
     parser.add_argument("-PSW", "--password", default="123456")
-    parser.add_argument("-I", "--interval", type=int, default=5)
+    parser.add_argument("-I", "--interval", type=int, default=1)
     try:
         version = importlib.metadata.version("macmenuqbt")
     except importlib.metadata.PackageNotFoundError:

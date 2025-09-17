@@ -86,6 +86,7 @@ class ConfettiView(NSView):
             AppHelper.callLater(0.03, self.animate)
         else:
             self.window().orderOut_(None)
+            AppHelper.stopEventLoop()
 
 
 def ee1():
@@ -108,5 +109,7 @@ def ee1():
     window.makeKeyAndOrderFront_(None)
 
     view.startAnimation()
+
+    AppHelper.runEventLoop()
 
 

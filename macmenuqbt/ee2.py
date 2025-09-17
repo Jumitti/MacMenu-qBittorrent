@@ -71,6 +71,7 @@ class BlackHoleView(NSView):
             AppHelper.callLater(0.03, self.animate)
         else:
             self.window().orderOut_(None)
+            AppHelper.stopEventLoop()
 
 
 def ee2():
@@ -93,3 +94,5 @@ def ee2():
     window.makeKeyAndOrderFront_(None)
 
     view.startAnimation()
+
+    AppHelper.runEventLoop()

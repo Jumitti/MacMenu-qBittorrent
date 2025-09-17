@@ -33,7 +33,7 @@ class BlackHole3D(QGLWidget):
     def spawn_particles(self):
         self.particles = []
         for _ in range(3000):
-            r = random.uniform(2.0, 7.0)
+            r = random.uniform(2.0, 9.0)
             theta = random.uniform(0, 2 * math.pi)
             phi = math.pi / 2 + random.uniform(-0.2, 0.2)
             speed = random.uniform(0.005, 0.02)
@@ -45,15 +45,15 @@ class BlackHole3D(QGLWidget):
         for p in self.particles:
             p["theta"] += p["speed"]
             p["r"] -= 0.002
-            if p["r"] <= 0.5:
+            if p["r"] <= 2:
                 self.respawn_particle(p)
         self.update()
 
     def respawn_particle(self, p):
-        p["r"] = random.uniform(6.0, 7.0)
+        p["r"] = random.uniform(2.0, 15.0)
         p["theta"] = random.uniform(0, 2 * math.pi)
-        p["phi"] = math.pi / 2 + random.uniform(-0.1, 0.1)
-        p["speed"] = random.uniform(0.02, 0.05)
+        p["phi"] = math.pi / 2 + random.uniform(-0.2, 0.2)
+        p["speed"] = random.uniform(0.005, 0.02)
 
     def paintGL(self):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
@@ -62,19 +62,16 @@ class BlackHole3D(QGLWidget):
         glRotatef(self.angle_x, 1, 0, 0)
         glRotatef(self.angle_y, 0, 1, 0)
 
-        # --- Trou noir central ---
         glColor3f(0, 0, 0)
         quad = gluNewQuadric()
         gluSphere(quad, 1.5, 32, 32)
 
-        # --- Disque d’accrétion ---
         glBegin(GL_POINTS)
         for p in self.particles:
             x = p["r"] * math.sin(p["phi"]) * math.cos(p["theta"])
             y = p["r"] * math.sin(p["phi"]) * math.sin(p["theta"])
             z = p["r"] * math.cos(p["phi"])
 
-            # Couleur selon la distance → plus chaud proche du centre
             heat = max(0.0, min(1.0, 1 - (p["r"] / 7.0)))
             r = 1.0
             g = heat * 0.6
@@ -109,7 +106,7 @@ def ee3():
     window = QMainWindow()
     widget = BlackHole3D()
     window.setCentralWidget(widget)
-    window.setGeometry(100, 100, 1000, 800)
+    window.showMaximized()
     window.setWindowTitle("Black Hole 3D")
     window.setWindowFlags(window.windowFlags() | Qt.WindowStaysOnTopHint)
     window.show()
